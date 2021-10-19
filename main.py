@@ -1,30 +1,18 @@
 import json
 import re
-import time
 import argparse
 from tqdm import tqdm
 
-# validator.py
-# parser = argparse.ArgumentParser(description='Validator')
-# parser.add_argument('indir', type=str, help='Input dir')
-# parser.add_argument('outdir', type=str, help='Output dir')
-# args = parser.parse_args()
-# print(args.indir)
+parser = argparse.ArgumentParser(description='Validator')
+parser.add_argument('indir', type=str, help='Input dir')
+parser.add_argument('outdir', type=str, help='Output dir')
+args = parser.parse_args()
+print(args.indir)
 
 
 class Validator:
     """
     Класс Валидатор
-    Methods
-    -------
-    __init__
-        метод для инициализации объекта класса
-    validate
-        метод валидации
-    validate_by_key
-        метод для валидации конкретной записи
-    save
-        метод для сохранения результата валидации в файл
     """
 
     def __init__(self, records):
@@ -123,14 +111,6 @@ class Validator:
 class Record:
     """
     Класс Запись
-    Methods
-    -------
-    __init__
-        метод для инициализации объекта класса
-    keys
-        метод для получения ключей объекта Record
-    data
-        метод для получения значения поля Record по ключу
     """
 
     def __init__(self, dct: dict):
