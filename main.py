@@ -33,6 +33,13 @@ class Validator:
                Parameters
                ----------
                records : коллекция объектов класса Record
+                Attributes:
+                ----------
+                self.pattern - dict в котором хранятся паттерны для валидации объекта класса Record
+                self.dict_errors - dict в котором хранятся число невалидных записей по типам ошибок
+                self.valid_count - число валидных записей
+                self.invalid_count - число невалидных записей
+                self.dict_valid - dict для хранения валидных записей
                """
         self.records = records
         self.pattern = {
@@ -58,13 +65,6 @@ class Validator:
         self.valid_count: int = 0
         self.invalid_count: int = 0
         self.dict_valid = []
-        """
-            self.pattern - dict в котором хранятся паттерны для валидации объекта класса Record
-            self.dict_errors - dict в котором хранятся число невалидных записей по типам ошибок
-            self.valid_count - число валидных записей
-            self.invalid_count - число невалидных записей
-            self.dict_valid - dict для хранения валидных записей
-        """
 
     def validate_by_key(self, record, key: str) -> bool:
         """
@@ -87,7 +87,7 @@ class Validator:
         """
           Данная функция отвечает за процесс валидации коллекции записей
           Считает количество валидных и невалидных записей а также ведет подсчет невалидных записей по типам ошибок
-          Процесс валидации наглядно показывает progressbar
+          Процесс валидации наглядно пока   зывает progressbar
           """
         with tqdm(total=100000) as progressbar:
             for record in self.records:
